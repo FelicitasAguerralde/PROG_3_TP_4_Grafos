@@ -41,7 +41,7 @@ public class ServicioDFS {
             //Guardo el valor del siguiente
             int v = iterator2.next();
             //Si ya esta marcado como no visitado
-            if(colores.get(v)==this.no_visitado){
+            if(colores.get(v).equals(this.no_visitado)){
                 //lo agrego
                 ordenVisitados.add(v);
                 //llamo al metodo privado y le paso el vertice con la lista de visitados
@@ -67,7 +67,7 @@ public class ServicioDFS {
                 int ady = adyacentes.next();
 
                 //Si un adyacente esta sin visitar, lo marco como visitado
-                if(colores.get(ady) == this.no_visitado){
+                if(colores.get(ady).equals(this.no_visitado)){
                     //Lo agrego a la lista
                     ordenVisitados.add(ady);
                     //llamo recursivamente
@@ -76,9 +76,8 @@ public class ServicioDFS {
 
                 //Agrego esta linea para detectar si hay un ciclo
                 else{
-                    if(colores.get(ady) == this.visitado){
+                    if(colores.get(ady).equals(this.visitado)){
                         this.tieneCiclo = true;
-                        isTieneCiclo(this.tieneCiclo);
                     }
                 }
             }
@@ -86,7 +85,7 @@ public class ServicioDFS {
         colores.put(vertice, this.encontrado);
     }
 
-    public boolean isTieneCiclo(boolean tieneCiclo){
+    public boolean isTieneCiclo(){
         return tieneCiclo;
     }
 }

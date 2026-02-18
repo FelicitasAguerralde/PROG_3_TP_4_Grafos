@@ -69,6 +69,7 @@ public class Main {
         }
     }
 */
+/* 
         // Crear un grafo dirigido
         GrafoDirigido<Integer> grafoConPares = new GrafoDirigido<>();
 
@@ -102,7 +103,44 @@ public class Main {
 
         // Imprimir la cantidad máxima de pares encontrados
         System.out.println("Cantidad máxima de pares encontrados: " + caminoMasCortoConMayorCantPares.getCantMayorPares());
+        */
+
+        // Ejericicio DFS
+        // Crear el grafo
+        GrafoDirigido<Integer> grafo = new GrafoDirigido<>();
+
+        // Agregar vértices
+        grafo.agregarVertice(1);
+        grafo.agregarVertice(2);
+        grafo.agregarVertice(3);
+        grafo.agregarVertice(4);
+        grafo.agregarVertice(5);
+
+        // Agregar arcos
+        grafo.agregarArco(1, 2, 1);
+        grafo.agregarArco(2, 3, 1);
+        grafo.agregarArco(3, 4, 1);
+        grafo.agregarArco(4, 2, 1); // Esto genera un ciclo
+        grafo.agregarArco(4, 5, 1);
+
+        // Crear el servicio DFS
+        ServicioDFS servicio = new ServicioDFS(grafo);
+
+        // Ejecutar DFS
+        List<Integer> recorrido = servicio.DFS(grafo);
+
+        // Mostrar recorrido
+        System.out.println("Orden de visitados:");
+        for (Integer v : recorrido) {
+            System.out.print(v + " ");
+        }
+
+        System.out.println("\n");
+
+        // Verificar si hay ciclo
+        System.out.println("¿Tiene ciclo? " + servicio.isTieneCiclo());
     }
+        
 }
 
 
