@@ -47,11 +47,11 @@ public class ServicioBFS {
             Iterator<Integer> it3 = grafo.obtenerAdyacentes(w); // Obtener adyacentes
             if(it3!=null) { // Si hay adyacentes
                 while (it3.hasNext()) { // Recorrer adyacentes
-                    int a = it3.next(); // Obtener adyacente actual
-                    if(!visitados.get(a)) { // Si no visitado
-                        visitados.put(a, true); // Marcar como visitado
-                        this.fila.add(a); // Agregar a la cola
-                        ordenVisitados.add(a); // Agregar al orden de visita
+                    int ady = it3.next(); // Obtener adyacente actual
+                    if(!visitados.get(ady)) { // Si no visitado
+                        visitados.put(ady, true); // Marcar como visitado
+                        this.fila.add(ady); // Agregar a la cola
+                        ordenVisitados.add(ady); // Agregar al orden de visita
                     }
                 }
             }
